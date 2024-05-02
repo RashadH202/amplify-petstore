@@ -6,12 +6,21 @@
 
 /* eslint-disable */
 import * as React from "react";
+import { generateClient } from "aws-amplify/api";
+import { createPet } from "../graphql/mutations";
 import { getOverrideProps } from "./utils";
 import LogoWithText from "./LogoWithText";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
+const client = generateClient();
 export default function NavBarHeader(props) {
   const { overrides, ...rest } = props;
+  const addPetOnClick = async () => {
+    await client.graphql({
+      query: createPet.replaceAll("__typename", ""),
+      variables: { input: {} },
+    });
+  };
   return (
     <Flex
       gap="40px"
@@ -57,7 +66,7 @@ export default function NavBarHeader(props) {
         <Text
           fontFamily="Inter"
           fontSize="16px"
-          fontWeight="400"
+          fontWeight="700"
           color="rgba(92,102,112,1)"
           lineHeight="24px"
           textAlign="left"
@@ -72,71 +81,11 @@ export default function NavBarHeader(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Dashboard"
-          {...getOverrideProps(overrides, "Dashboard")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(92,102,112,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Jobs"
-          {...getOverrideProps(overrides, "Jobs")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(92,102,112,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Applicants"
-          {...getOverrideProps(overrides, "Applicants")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(92,102,112,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Company"
-          {...getOverrideProps(overrides, "Company")}
+          children="Add Pet"
+          onClick={() => {
+            addPetOnClick();
+          }}
+          {...getOverrideProps(overrides, "Add Pet")}
         ></Text>
       </Flex>
       <Flex

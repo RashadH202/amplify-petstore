@@ -6,21 +6,48 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
+import { generateClient } from "aws-amplify/api";
+import { deletePet, updatePet } from "../graphql/mutations";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
+const client = generateClient();
 export default function PetProfile(props) {
   const { pet, overrides, ...rest } = props;
+  const buttonTwoNineSevenSixSixNineZeroSevenOnClick = useNavigateAction({
+    type: "url",
+    url: "",
+  });
+  const buttonThreeEightFiveThreeFourFiveOneOnClick = async () => {
+    await client.graphql({
+      query: updatePet.replaceAll("__typename", ""),
+      variables: {
+        input: {
+          id: pet?.name,
+        },
+      },
+    });
+  };
+  const buttonThreeEightFiveFourOneOneEightZeroOnClick = async () => {
+    await client.graphql({
+      query: deletePet.replaceAll("__typename", ""),
+      variables: {
+        input: {
+          id: pet?.id,
+        },
+      },
+    });
+  };
   return (
     <Flex
-      gap="24px"
+      gap="18px"
       direction="column"
-      width="320px"
+      width="unset"
       height="unset"
       justifyContent="flex-start"
       alignItems="center"
       position="relative"
-      padding="24px 24px 24px 24px"
+      borderRadius="17px"
+      padding="24px 33px 24px 33px"
       backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "PetProfile")}
       {...rest}
@@ -43,8 +70,8 @@ export default function PetProfile(props) {
       <Flex
         gap="8px"
         direction="column"
-        width="unset"
-        height="unset"
+        width="254px"
+        height="160px"
         justifyContent="flex-start"
         alignItems="center"
         shrink="0"
@@ -70,7 +97,7 @@ export default function PetProfile(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children={pet?.name}
+          children={`${"Name: "}${pet?.name}`}
           {...getOverrideProps(overrides, "Melinda Marcus")}
         ></Text>
         <Text
@@ -95,33 +122,6 @@ export default function PetProfile(props) {
           children={pet?.about}
           {...getOverrideProps(overrides, "Design Engineer at Cloth Studios")}
         ></Text>
-      </Flex>
-      <Flex
-        gap="16px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Followers")}
-      >
-        <MyIcon
-          width="24px"
-          height="24px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          overflow="hidden"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          type="group"
-          {...getOverrideProps(overrides, "MyIcon")}
-        ></MyIcon>
         <Text
           fontFamily="Inter"
           fontSize="16px"
@@ -141,20 +141,94 @@ export default function PetProfile(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="99 Followers"
-          {...getOverrideProps(overrides, "99 Followers")}
+          children={pet?.breed}
+          {...getOverrideProps(overrides, "Breed")}
+        ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="16px"
+          fontWeight="400"
+          color="rgba(48,64,80,1)"
+          lineHeight="24px"
+          textAlign="center"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.01px"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={`${"age: "}${pet?.age}`}
+          {...getOverrideProps(overrides, "Age:")}
+        ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="16px"
+          fontWeight="400"
+          color="rgba(48,64,80,1)"
+          lineHeight="24px"
+          textAlign="center"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.01px"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={pet?.color}
+          {...getOverrideProps(overrides, "About:")}
         ></Text>
       </Flex>
       <Button
         width="unset"
         height="unset"
         shrink="0"
-        alignSelf="stretch"
         size="large"
         isDisabled={false}
         variation="primary"
         children="View Profile"
-        {...getOverrideProps(overrides, "Button")}
+        onClick={() => {
+          buttonTwoNineSevenSixSixNineZeroSevenOnClick();
+        }}
+        {...getOverrideProps(overrides, "Button29766907")}
+      ></Button>
+      <Button
+        width="150px"
+        height="40px"
+        padding="7px 31px 7px 31px"
+        shrink="0"
+        size="large"
+        isDisabled={false}
+        variation="primary"
+        children="Update "
+        onClick={() => {
+          buttonThreeEightFiveThreeFourFiveOneOnClick();
+        }}
+        {...getOverrideProps(overrides, "Button3853451")}
+      ></Button>
+      <Button
+        width="152px"
+        height="42px"
+        padding="8px 32px 8px 32px"
+        shrink="0"
+        size="large"
+        isDisabled={false}
+        variation="warning"
+        children="Delete"
+        onClick={() => {
+          buttonThreeEightFiveFourOneOneEightZeroOnClick();
+        }}
+        {...getOverrideProps(overrides, "Button38541180")}
       ></Button>
     </Flex>
   );

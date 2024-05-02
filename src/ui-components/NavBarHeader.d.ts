@@ -23,10 +23,7 @@ export declare type NavBarHeaderOverridesProps = {
     NavBarHeader?: PrimitiveOverrideProps<FlexProps>;
     LogoWithText?: LogoWithTextProps;
     "Frame 32129767076"?: PrimitiveOverrideProps<FlexProps>;
-    Dashboard?: PrimitiveOverrideProps<TextProps>;
-    Jobs?: PrimitiveOverrideProps<TextProps>;
-    Applicants?: PrimitiveOverrideProps<TextProps>;
-    Company?: PrimitiveOverrideProps<TextProps>;
+    "Add Pet"?: PrimitiveOverrideProps<TextProps>;
     "Frame 32129767081"?: PrimitiveOverrideProps<FlexProps>;
     MyIcon?: MyIconProps;
     image?: PrimitiveOverrideProps<ImageProps>;

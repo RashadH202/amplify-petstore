@@ -18,11 +18,12 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type EditProfileOverridesProps = {
-    EditProfile?: PrimitiveOverrideProps<FlexProps>;
+export declare type AddPetOverridesProps = {
+    AddPet?: PrimitiveOverrideProps<FlexProps>;
     Content?: PrimitiveOverrideProps<FlexProps>;
     "Edit Profile"?: PrimitiveOverrideProps<FlexProps>;
-    "Edit Pet"?: PrimitiveOverrideProps<TextProps>;
+    "Frame 438"?: PrimitiveOverrideProps<FlexProps>;
+    "Add Pet"?: PrimitiveOverrideProps<TextProps>;
     MyIcon?: MyIconProps;
     Profile?: PrimitiveOverrideProps<FlexProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
@@ -33,9 +34,12 @@ export declare type EditProfileOverridesProps = {
     TextField29766924?: PrimitiveOverrideProps<TextFieldProps>;
     TextField38651513?: PrimitiveOverrideProps<TextFieldProps>;
     TextField38651520?: PrimitiveOverrideProps<TextFieldProps>;
+    TextField38681579?: PrimitiveOverrideProps<TextFieldProps>;
     Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type EditProfileProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: EditProfileOverridesProps | undefined | null;
+export declare type AddPetProps = React.PropsWithChildren<Partial<FlexProps> & {
+    pet?: any;
+} & {
+    overrides?: AddPetOverridesProps | undefined | null;
 }>;
-export default function EditProfile(props: EditProfileProps): React.ReactElement;
+export default function AddPet(props: AddPetProps): React.ReactElement;

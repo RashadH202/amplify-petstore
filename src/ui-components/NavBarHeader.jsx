@@ -128,6 +128,7 @@ export default function NavBarHeader(props) {
           borderRadius="160px"
           padding="0px 0px 0px 0px"
           objectFit="cover"
+          src="https://cdn-icons-png.flaticon.com/512/616/616886.png"
           {...getOverrideProps(overrides, "image")}
         ></Image>
       </Flex>

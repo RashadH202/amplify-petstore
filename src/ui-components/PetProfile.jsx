@@ -14,8 +14,9 @@ const client = generateClient();
 export default function PetProfile(props) {
   const { pet, overrides, ...rest } = props;
   const buttonTwoNineSevenSixSixNineZeroSevenOnClick = useNavigateAction({
+    target: "_blank",
     type: "url",
-    url: "",
+    url: pet?.id,
   });
   const buttonThreeEightFiveThreeFourFiveOneOnClick = async () => {
     await client.graphql({

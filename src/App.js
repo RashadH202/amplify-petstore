@@ -1,14 +1,28 @@
 import './App.css';
-
-import {PetProfileCollection } from './ui-components';
+import { useState } from 'react';
+import {PetProfile, PetProfileCollection, AddPet } from './ui-components';
  import {NavBarHeader} from './ui-components'
  import {MarketingFooter} from './ui-components'
-function App() {
+
+
+ function App() {
+  const [showForm, setShowForm] = useState(false)
+  const navbarOverrides ={
+    "Add Pet": {
+      onClick: ()=> {
+        setShowForm(!showForm)
+      }
+    }
+  }
+
+
   return (
     <div className="App">
-     <header ><NavBarHeader width={"100%"}/></header>
-
-        
+     <header ><NavBarHeader width={"100%"} overrides={navbarOverrides} /></header>
+      {showForm && (
+        <AddPet/>
+      )}
+        <PetProfile/>
       
       <PetProfileCollection  />
       <footer >

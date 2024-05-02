@@ -7,19 +7,20 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "./utils";
-import MyIcon from "./MyIcon";
 import { Button, Flex, Image, Text, TextField } from "@aws-amplify/ui-react";
+import MyIcon from "./MyIcon";
 export default function EditProfile(props) {
   const { overrides, ...rest } = props;
   return (
     <Flex
       gap="16px"
       direction="column"
-      width="640px"
-      height="unset"
+      width="629px"
+      height="752px"
       justifyContent="flex-start"
       alignItems="flex-start"
       position="relative"
+      borderRadius="70px"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "EditProfile")}
@@ -28,12 +29,11 @@ export default function EditProfile(props) {
       <Flex
         gap="24px"
         direction="column"
-        width="unset"
-        height="unset"
+        width="629px"
+        height="752px"
         justifyContent="flex-start"
         alignItems="flex-start"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
         padding="24px 24px 24px 24px"
         {...getOverrideProps(overrides, "Content")}
@@ -43,28 +43,14 @@ export default function EditProfile(props) {
           direction="row"
           width="unset"
           height="unset"
-          justifyContent="flex-start"
+          justifyContent="flex-end"
           alignItems="center"
           shrink="0"
           alignSelf="stretch"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Edit Profile29766913")}
+          {...getOverrideProps(overrides, "Edit Profile")}
         >
-          <MyIcon
-            width="24px"
-            height="24px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            overflow="hidden"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            type="close"
-            {...getOverrideProps(overrides, "MyIcon")}
-          ></MyIcon>
           <Text
             fontFamily="Inter"
             fontSize="16px"
@@ -83,9 +69,23 @@ export default function EditProfile(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Edit Profile"
-            {...getOverrideProps(overrides, "Edit Profile29766916")}
+            children="Edit Pet"
+            {...getOverrideProps(overrides, "Edit Pet")}
           ></Text>
+          <MyIcon
+            width="24px"
+            height="24px"
+            display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
+            overflow="hidden"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            type="close"
+            {...getOverrideProps(overrides, "MyIcon")}
+          ></MyIcon>
         </Flex>
         <Flex
           gap="16px"
@@ -153,7 +153,7 @@ export default function EditProfile(props) {
           <TextField
             width="unset"
             height="unset"
-            label="Full name"
+            label="Name"
             placeholder="John Doe"
             shrink="0"
             alignSelf="stretch"
@@ -166,8 +166,8 @@ export default function EditProfile(props) {
           <TextField
             width="unset"
             height="unset"
-            label="Location"
-            placeholder="Seattle, WA"
+            label="Breed"
+            placeholder="lab"
             shrink="0"
             alignSelf="stretch"
             size="default"
@@ -179,8 +179,8 @@ export default function EditProfile(props) {
           <TextField
             width="unset"
             height="unset"
-            label="Email"
-            placeholder="john.doe@awsamplify.com"
+            label="About"
+            placeholder="something about your dog"
             shrink="0"
             alignSelf="stretch"
             size="default"
@@ -189,18 +189,44 @@ export default function EditProfile(props) {
             variation="default"
             {...getOverrideProps(overrides, "TextField29766924")}
           ></TextField>
+          <TextField
+            width="unset"
+            height="unset"
+            label="Color"
+            placeholder="red"
+            shrink="0"
+            alignSelf="stretch"
+            size="default"
+            isDisabled={false}
+            labelHidden={false}
+            variation="default"
+            {...getOverrideProps(overrides, "TextField38651513")}
+          ></TextField>
+          <TextField
+            width="unset"
+            height="unset"
+            label="Age"
+            placeholder="img  url"
+            shrink="0"
+            alignSelf="stretch"
+            size="default"
+            isDisabled={false}
+            labelHidden={false}
+            variation="default"
+            {...getOverrideProps(overrides, "TextField38651520")}
+          ></TextField>
         </Flex>
-        <Button
-          width="unset"
-          height="unset"
-          shrink="0"
-          size="default"
-          isDisabled={false}
-          variation="primary"
-          children="Save"
-          {...getOverrideProps(overrides, "Button")}
-        ></Button>
       </Flex>
+      <Button
+        width="unset"
+        height="unset"
+        shrink="0"
+        size="default"
+        isDisabled={false}
+        variation="primary"
+        children="Save"
+        {...getOverrideProps(overrides, "Button")}
+      ></Button>
     </Flex>
   );
 }

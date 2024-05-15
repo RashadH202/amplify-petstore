@@ -10,11 +10,30 @@ import { useState } from "react";
 import { generateClient } from "aws-amplify/api";
 import { createPet, updatePet } from "../graphql/mutations";
 import { getOverrideProps } from "./utils";
-import { Button, Flex, Image, Text, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Image,
+  Text,
+  TextField,
+  View,
+} from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
 const client = generateClient();
 export default function AddPet(props) {
   const { pet, overrides, ...rest } = props;
+  const [
+    textFieldTwoNineSevenSixSixNineTwoTwoValue,
+    setTextFieldTwoNineSevenSixSixNineTwoTwoValue,
+  ] = useState("");
+  const [
+    textFieldThreeEightSixFiveOneFiveTwoZeroValue,
+    setTextFieldThreeEightSixFiveOneFiveTwoZeroValue,
+  ] = useState("");
+  const [
+    textFieldTwoNineSevenSixSixNineTwoThreeValue,
+    setTextFieldTwoNineSevenSixSixNineTwoThreeValue,
+  ] = useState("");
   const [
     textFieldTwoNineSevenSixSixNineTwoFourValue,
     setTextFieldTwoNineSevenSixSixNineTwoFourValue,
@@ -24,88 +43,36 @@ export default function AddPet(props) {
     setTextFieldThreeEightSixEightOneFiveSevenNineValue,
   ] = useState("");
   const [
-    textFieldTwoNineSevenSixSixNineTwoTwoValue,
-    setTextFieldTwoNineSevenSixSixNineTwoTwoValue,
-  ] = useState("");
-  const [
-    textFieldTwoNineSevenSixSixNineTwoThreeValue,
-    setTextFieldTwoNineSevenSixSixNineTwoThreeValue,
-  ] = useState("");
-  const [
     textFieldThreeEightSixFiveOneFiveOneThreeValue,
     setTextFieldThreeEightSixFiveOneFiveOneThreeValue,
   ] = useState("");
-  const [
-    textFieldThreeEightSixFiveOneFiveTwoZeroValue,
-    setTextFieldThreeEightSixFiveOneFiveTwoZeroValue,
-  ] = useState("");
-  const contentOnClick = async () => {
-    await client.graphql({
-      query: createPet.replaceAll("__typename", ""),
-      variables: {
-        input: {
-          about: textFieldTwoNineSevenSixSixNineTwoFourValue,
-        },
-      },
-    });
-  };
-  const uploadNewImageOnClick = async () => {
+  const buttonThreeEightEightNineFourThreeFourOnClick = async () => {
     await client.graphql({
       query: updatePet.replaceAll("__typename", ""),
       variables: {
         input: {
-          name: textFieldThreeEightSixEightOneFiveSevenNineValue,
-          id: pet?.image,
+          name: textFieldTwoNineSevenSixSixNineTwoTwoValue,
+          age: textFieldThreeEightSixFiveOneFiveTwoZeroValue,
+          breed: textFieldTwoNineSevenSixSixNineTwoThreeValue,
+          about: textFieldTwoNineSevenSixSixNineTwoFourValue,
+          image: textFieldThreeEightSixEightOneFiveSevenNineValue,
+          color: textFieldThreeEightSixFiveOneFiveOneThreeValue,
+          id: pet?.id,
         },
       },
     });
   };
-  const textFieldTwoNineSevenSixSixNineTwoTwoOnClick = async () => {
+  const buttonTwoNineSevenSixSixNineTwoSixOnClick = async () => {
     await client.graphql({
       query: createPet.replaceAll("__typename", ""),
       variables: {
         input: {
           name: textFieldTwoNineSevenSixSixNineTwoTwoValue,
-        },
-      },
-    });
-  };
-  const textFieldTwoNineSevenSixSixNineTwoThreeOnClick = async () => {
-    await client.graphql({
-      query: createPet.replaceAll("__typename", ""),
-      variables: {
-        input: {
-          breed: textFieldTwoNineSevenSixSixNineTwoThreeValue,
-        },
-      },
-    });
-  };
-  const textFieldThreeEightSixFiveOneFiveOneThreeOnClick = async () => {
-    await client.graphql({
-      query: createPet.replaceAll("__typename", ""),
-      variables: {
-        input: {
-          color: textFieldThreeEightSixFiveOneFiveOneThreeValue,
-        },
-      },
-    });
-  };
-  const textFieldThreeEightSixFiveOneFiveTwoZeroOnClick = async () => {
-    await client.graphql({
-      query: createPet.replaceAll("__typename", ""),
-      variables: {
-        input: {
           age: textFieldThreeEightSixFiveOneFiveTwoZeroValue,
-        },
-      },
-    });
-  };
-  const textFieldThreeEightSixEightOneFiveSevenNineOnClick = async () => {
-    await client.graphql({
-      query: createPet.replaceAll("__typename", ""),
-      variables: {
-        input: {
-          name: textFieldThreeEightSixEightOneFiveSevenNineValue,
+          breed: textFieldTwoNineSevenSixSixNineTwoThreeValue,
+          about: textFieldTwoNineSevenSixSixNineTwoFourValue,
+          image: textFieldThreeEightSixEightOneFiveSevenNineValue,
+          color: textFieldThreeEightSixFiveOneFiveOneThreeValue,
         },
       },
     });
@@ -135,9 +102,6 @@ export default function AddPet(props) {
         shrink="0"
         position="relative"
         padding="24px 24px 24px 24px"
-        onClick={() => {
-          contentOnClick();
-        }}
         {...getOverrideProps(overrides, "Content")}
       >
         <Flex
@@ -249,9 +213,6 @@ export default function AddPet(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Upload New Image"
-            onClick={() => {
-              uploadNewImageOnClick();
-            }}
             {...getOverrideProps(overrides, "Upload New Image")}
           ></Text>
         </Flex>
@@ -280,9 +241,6 @@ export default function AddPet(props) {
             labelHidden={false}
             variation="default"
             value={textFieldTwoNineSevenSixSixNineTwoTwoValue}
-            onClick={() => {
-              textFieldTwoNineSevenSixSixNineTwoTwoOnClick();
-            }}
             onChange={(event) => {
               setTextFieldTwoNineSevenSixSixNineTwoTwoValue(event.target.value);
             }}
@@ -300,9 +258,6 @@ export default function AddPet(props) {
             labelHidden={false}
             variation="default"
             value={textFieldTwoNineSevenSixSixNineTwoThreeValue}
-            onClick={() => {
-              textFieldTwoNineSevenSixSixNineTwoThreeOnClick();
-            }}
             onChange={(event) => {
               setTextFieldTwoNineSevenSixSixNineTwoThreeValue(
                 event.target.value
@@ -341,9 +296,6 @@ export default function AddPet(props) {
             labelHidden={false}
             variation="default"
             value={textFieldThreeEightSixFiveOneFiveOneThreeValue}
-            onClick={() => {
-              textFieldThreeEightSixFiveOneFiveOneThreeOnClick();
-            }}
             onChange={(event) => {
               setTextFieldThreeEightSixFiveOneFiveOneThreeValue(
                 event.target.value
@@ -363,9 +315,6 @@ export default function AddPet(props) {
             labelHidden={false}
             variation="default"
             value={textFieldThreeEightSixFiveOneFiveTwoZeroValue}
-            onClick={() => {
-              textFieldThreeEightSixFiveOneFiveTwoZeroOnClick();
-            }}
             onChange={(event) => {
               setTextFieldThreeEightSixFiveOneFiveTwoZeroValue(
                 event.target.value
@@ -385,9 +334,6 @@ export default function AddPet(props) {
             labelHidden={false}
             variation="default"
             value={textFieldThreeEightSixEightOneFiveSevenNineValue}
-            onClick={() => {
-              textFieldThreeEightSixEightOneFiveSevenNineOnClick();
-            }}
             onChange={(event) => {
               setTextFieldThreeEightSixEightOneFiveSevenNineValue(
                 event.target.value
@@ -396,17 +342,51 @@ export default function AddPet(props) {
             {...getOverrideProps(overrides, "TextField38681579")}
           ></TextField>
         </Flex>
+        <View
+          width="215px"
+          height="80px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
+          overflow="hidden"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "Frame 439")}
+        >
+          <Button
+            width="unset"
+            height="unset"
+            position="absolute"
+            top="19px"
+            left="12px"
+            size="default"
+            isDisabled={false}
+            variation="default"
+            children="Update"
+            onClick={() => {
+              buttonThreeEightEightNineFourThreeFourOnClick();
+            }}
+            {...getOverrideProps(overrides, "Button3889434")}
+          ></Button>
+          <Button
+            width="unset"
+            height="unset"
+            position="absolute"
+            top="20px"
+            left="131px"
+            size="default"
+            isDisabled={false}
+            variation="primary"
+            children="Save"
+            onClick={() => {
+              buttonTwoNineSevenSixSixNineTwoSixOnClick();
+            }}
+            {...getOverrideProps(overrides, "Button29766926")}
+          ></Button>
+        </View>
       </Flex>
-      <Button
-        width="unset"
-        height="unset"
-        shrink="0"
-        size="default"
-        isDisabled={false}
-        variation="primary"
-        children="Save"
-        {...getOverrideProps(overrides, "Button")}
-      ></Button>
     </Flex>
   );
 }

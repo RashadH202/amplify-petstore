@@ -6,28 +6,13 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps, useNavigateAction } from "./utils";
 import { generateClient } from "aws-amplify/api";
-import { deletePet, updatePet } from "../graphql/mutations";
+import { deletePet } from "../graphql/mutations";
+import { getOverrideProps } from "./utils";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 const client = generateClient();
 export default function PetProfile(props) {
   const { pet, overrides, ...rest } = props;
-  const buttonTwoNineSevenSixSixNineZeroSevenOnClick = useNavigateAction({
-    target: "_blank",
-    type: "url",
-    url: pet?.id,
-  });
-  const buttonThreeEightFiveThreeFourFiveOneOnClick = async () => {
-    await client.graphql({
-      query: updatePet.replaceAll("__typename", ""),
-      variables: {
-        input: {
-          id: pet?.name,
-        },
-      },
-    });
-  };
   const buttonThreeEightFiveFourOneOneEightZeroOnClick = async () => {
     await client.graphql({
       query: deletePet.replaceAll("__typename", ""),
@@ -198,9 +183,6 @@ export default function PetProfile(props) {
         isDisabled={false}
         variation="primary"
         children="View Profile"
-        onClick={() => {
-          buttonTwoNineSevenSixSixNineZeroSevenOnClick();
-        }}
         {...getOverrideProps(overrides, "Button29766907")}
       ></Button>
       <Button
@@ -212,9 +194,6 @@ export default function PetProfile(props) {
         isDisabled={false}
         variation="primary"
         children="Update "
-        onClick={() => {
-          buttonThreeEightFiveThreeFourFiveOneOnClick();
-        }}
         {...getOverrideProps(overrides, "Button3853451")}
       ></Button>
       <Button

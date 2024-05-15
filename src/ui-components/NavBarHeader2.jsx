@@ -7,7 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "./utils";
-import { Button, Flex, Icon, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NavBarHeader2(props) {
   const { overrides, ...rest } = props;
   return (
@@ -99,39 +99,6 @@ export default function NavBarHeader2(props) {
           children="Add Pet"
           {...getOverrideProps(overrides, "Add Pet")}
         ></Text>
-      </Flex>
-      <Flex
-        gap="8px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "actions")}
-      >
-        <Button
-          width="unset"
-          height="unset"
-          shrink="0"
-          size="default"
-          isDisabled={false}
-          variation="link"
-          children="Log in"
-          {...getOverrideProps(overrides, "Button39493466")}
-        ></Button>
-        <Button
-          width="unset"
-          height="unset"
-          shrink="0"
-          size="default"
-          isDisabled={false}
-          variation="primary"
-          children="Sign up"
-          {...getOverrideProps(overrides, "Button39493467")}
-        ></Button>
       </Flex>
     </Flex>
   );

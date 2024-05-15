@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, FlexProps, ImageProps, TextFieldProps, TextProps } from "@aws-amplify/ui-react";
+import { ButtonProps, FlexProps, ImageProps, TextFieldProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 import { MyIconProps } from "./MyIcon";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
@@ -35,7 +35,9 @@ export declare type AddPetOverridesProps = {
     TextField38651513?: PrimitiveOverrideProps<TextFieldProps>;
     TextField38651520?: PrimitiveOverrideProps<TextFieldProps>;
     TextField38681579?: PrimitiveOverrideProps<TextFieldProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
+    "Frame 439"?: PrimitiveOverrideProps<ViewProps>;
+    Button3889434?: PrimitiveOverrideProps<ButtonProps>;
+    Button29766926?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type AddPetProps = React.PropsWithChildren<Partial<FlexProps> & {
     pet?: any;

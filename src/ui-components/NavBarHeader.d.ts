@@ -6,7 +6,7 @@
 
 import * as React from "react";
 import { LogoWithTextProps } from "./LogoWithText";
-import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
+import { ButtonProps, FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 import { MyIconProps } from "./MyIcon";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
@@ -24,9 +24,14 @@ export declare type NavBarHeaderOverridesProps = {
     LogoWithText?: LogoWithTextProps;
     "Frame 32129767076"?: PrimitiveOverrideProps<FlexProps>;
     "Add Pet"?: PrimitiveOverrideProps<TextProps>;
+    actions?: PrimitiveOverrideProps<FlexProps>;
+    Button39493466?: PrimitiveOverrideProps<ButtonProps>;
+    Button39493467?: PrimitiveOverrideProps<ButtonProps>;
+    Button3896532?: PrimitiveOverrideProps<ButtonProps>;
     "Frame 32129767081"?: PrimitiveOverrideProps<FlexProps>;
     MyIcon?: MyIconProps;
     image?: PrimitiveOverrideProps<ImageProps>;
+    username?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type NavBarHeaderProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: NavBarHeaderOverridesProps | undefined | null;

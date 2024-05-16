@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.fdf51224.css",
-    "main.js": "/static/js/main.a4b2fa8d.js",
-    "index.html": "/index.html",
-    "main.fdf51224.css.map": "/static/css/main.fdf51224.css.map",
-    "main.a4b2fa8d.js.map": "/static/js/main.a4b2fa8d.js.map"
+    "main.css": "/amplify-petstore/static/css/main.fdf51224.css",
+    "main.js": "/amplify-petstore/static/js/main.13052666.js",
+    "index.html": "/amplify-petstore/index.html",
+    "main.fdf51224.css.map": "/amplify-petstore/static/css/main.fdf51224.css.map",
+    "main.13052666.js.map": "/amplify-petstore/static/js/main.13052666.js.map"
   },
   "entrypoints": [
     "static/css/main.fdf51224.css",
-    "static/js/main.a4b2fa8d.js"
+    "static/js/main.13052666.js"
   ]
 }
